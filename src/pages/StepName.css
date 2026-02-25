@@ -1,94 +1,195 @@
-.gov-page {
-  background: #f5f6f7;
+.gov-page{
   min-height: 100vh;
-  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color: #1f2937;
 }
 
-.gov-header {
-  padding: 16px 24px;
-  background: white;
-  border-bottom: 1px solid #ddd;
+/* HEADER */
+.g-header{
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.gov-header img {
-  height: 32px;
-}
-
-.gov-container {
-  max-width: 900px;
-  margin: 40px auto;
-  background: #efefef;
-  padding: 40px;
-  border-radius: 12px;
-}
-
-.gov-title {
-  text-align: center;
-  margin-bottom: 30px;
-  font-weight: 600;
-}
-
-.gov-step {
+.g-header-inner{
+  height: 64px;
+  padding: 0 18px;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  justify-content: space-between;
 }
 
-.gov-step-number {
-  width: 32px;
-  height: 32px;
-  background: #2c5aa0;
-  color: white;
-  border-radius: 50%;
+.g-left{
   display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.g-logo{
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+.g-burger{
+  border: 0;
+  background: transparent;
+  font-size: 18px;
+  line-height: 1;
+  padding: 8px 6px;
+  cursor: pointer;
+  color: #111827;
+}
+
+.g-link{
+  color: #1d4ed8;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 420px;
+}
+
+.g-right{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #111827;
+  opacity: .85;
+  font-size: 14px;
+}
+
+.g-dot{ font-size: 18px; }
+.g-circle{ font-size: 16px; }
+.g-grid{ font-size: 16px; }
+.g-avatar{
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-right: 10px;
-  font-weight: bold;
+  background: #1d4ed8;
+  color: #fff;
+  font-size: 12px;
 }
 
-.gov-question {
-  font-weight: 500;
+/* MAIN / CARD */
+.g-main{
+  padding: 22px 18px 60px;
 }
 
-.gov-options {
-  margin-top: 20px;
+.g-card{
+  max-width: 1120px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  padding: 26px 26px 22px;
 }
 
-.gov-option {
-  padding: 18px;
-  border-bottom: 1px solid #ccc;
-  cursor: pointer;
-  transition: 0.2s;
+.g-card-title{
+  margin: 0 0 18px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
 }
 
-.gov-option:hover {
-  background: #e3eaf5;
+.g-steprow{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0 10px;
 }
 
-.gov-option.active {
-  background: #d6e4ff;
-  font-weight: bold;
+.g-stepcircle{
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #1d4ed8;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
 }
 
-.gov-button {
-  margin-top: 30px;
+.g-question{
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* LIST */
+.g-list{
+  margin-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.g-item{
   width: 100%;
-  padding: 18px;
-  border-radius: 30px;
-  border: none;
-  background: #6c88b5;
-  color: white;
-  font-size: 16px;
+  border: 0;
+  background: #fff;
+  text-align: left;
+  padding: 18px 10px;
+  border-bottom: 1px solid #e5e7eb;
   cursor: pointer;
+  transition: background .12s ease, transform .08s ease;
 }
 
-.gov-button:disabled {
-  opacity: 0.6;
+.g-item:hover{
+  background: #f6f7f9;
+}
+
+.g-item:active{
+  transform: translateY(1px);
+}
+
+.g-item.is-active{
+  background: #eef2ff;
+}
+
+.g-item-text{
+  display: block;
+  font-size: 13px;
+  letter-spacing: .02em;
+  color: #111827;
+}
+
+/* BUTTON */
+.g-confirm{
+  margin-top: 18px;
+  width: 100%;
+  height: 56px;
+  border: 0;
+  border-radius: 999px;
+  background: #6f8fbe;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: filter .12s ease, transform .08s ease, opacity .12s ease;
+}
+
+.g-confirm:hover{
+  filter: brightness(1.03);
+}
+
+.g-confirm:active{
+  transform: translateY(1px);
+}
+
+.g-confirm:disabled{
+  opacity: .55;
   cursor: not-allowed;
 }
 
-.step-loading {
-  padding: 50px;
+.step-loading{
+  padding: 60px 18px;
   text-align: center;
+  color: #6b7280;
 }
