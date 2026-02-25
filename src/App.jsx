@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import Header from "./components/Header";
@@ -11,11 +12,34 @@ import SectionStepsLegal from "./components/SectionStepsLegal";
 import Footer from "./components/Footer";
 import GovLoginModal from "./components/GovLoginModal";
 
-export default function App() {
-  const [open, setOpen] = useState(false);
+import StepName from "./pages/StepName";
+import StepBirth from "./pages/StepBirth";
+import StepMother from "./pages/StepMother";
 
-  // aqui vamos guardar o retorno do CPF (payload vindo do modal)
-  const [leadData, setLeadData] = useState(null);
+export default function App() {
+
+  return (
+
+    <BrowserRouter>
+
+      <Routes>
+
+        <Route path="/" element={<HomeLayout />} />
+        <Route path="/nome" element={<StepName />} />
+        <Route path="/nascimento" element={<StepBirth />} />
+        <Route path="/mae" element={<StepMother />} />
+
+      </Routes>
+
+    </BrowserRouter>
+
+  );
+}
+
+function HomeLayout() {
+
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const openModal = () => setOpen(true);
   const closeModal = () => setOpen(false);
@@ -36,15 +60,12 @@ export default function App() {
         open={open}
         onClose={closeModal}
         onContinue={(payload) => {
-          // payload pode ser só o cpf (string) OU um objeto (ex: { cpf, dados })
-          setLeadData(payload);
+
           closeModal();
 
-          // depois você define o que fazer:
-          // - navegar pra outra página
-          // - abrir próxima etapa
-          // - renderizar um componente de confirmação
-          console.log("LEAD DATA:", payload);
+          // Navega para página do nome
+          navigate("/nome", { state: payload });
+
         }}
       />
     </>

