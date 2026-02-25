@@ -15,6 +15,8 @@ import GovLoginModal from "./components/GovLoginModal";
 import StepName from "./pages/StepName";
 import StepBirth from "./pages/StepBirth";
 import StepMother from "./pages/StepMother";
+import StepIncome from "./pages/StepIncome";
+import StepCnh from "./pages/StepCnh";
 
 function Home({ openModal }) {
   return (
@@ -33,9 +35,7 @@ function Home({ openModal }) {
 }
 
 export default function App() {
-
   const [open, setOpen] = useState(false);
-
   const navigate = useNavigate();
 
   const openModal = () => setOpen(true);
@@ -43,45 +43,25 @@ export default function App() {
 
   return (
     <>
-
       <Routes>
+        <Route path="/" element={<Home openModal={openModal} />} />
 
-        <Route
-          path="/"
-          element={<Home openModal={openModal} />}
-        />
+        <Route path="/stepname" element={<StepName />} />
+        <Route path="/stepbirth" element={<StepBirth />} />
+        <Route path="/stepmother" element={<StepMother />} />
 
-        <Route
-          path="/stepname"
-          element={<StepName />}
-        />
-
-        <Route
-          path="/stepbirth"
-          element={<StepBirth />}
-        />
-
-        <Route
-          path="/stepmother"
-          element={<StepMother />}
-        />
-
+        <Route path="/stepincome" element={<StepIncome />} />
+        <Route path="/stepcnh" element={<StepCnh />} />
       </Routes>
 
       <GovLoginModal
         open={open}
         onClose={closeModal}
         onContinue={(payload) => {
-
           closeModal();
-
-          navigate("/stepname", {
-            state: payload
-          });
-
+          navigate("/stepname", { state: payload });
         }}
       />
-
     </>
   );
 }
