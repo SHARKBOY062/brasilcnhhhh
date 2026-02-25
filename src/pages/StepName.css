@@ -1,0 +1,94 @@
+.gov-page {
+  background: #f5f6f7;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.gov-header {
+  padding: 16px 24px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.gov-header img {
+  height: 32px;
+}
+
+.gov-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #efefef;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.gov-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.gov-step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.gov-step-number {
+  width: 32px;
+  height: 32px;
+  background: #2c5aa0;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.gov-question {
+  font-weight: 500;
+}
+
+.gov-options {
+  margin-top: 20px;
+}
+
+.gov-option {
+  padding: 18px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.gov-option:hover {
+  background: #e3eaf5;
+}
+
+.gov-option.active {
+  background: #d6e4ff;
+  font-weight: bold;
+}
+
+.gov-button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 18px;
+  border-radius: 30px;
+  border: none;
+  background: #6c88b5;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.gov-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.step-loading {
+  padding: 50px;
+  text-align: center;
+}
