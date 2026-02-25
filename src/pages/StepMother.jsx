@@ -153,7 +153,8 @@ export default function StepMother() {
   const goNext = () => {
     if (!selected) return;
 
-    navigate("/final", {
+    // ✅ AGORA VAI PARA O STEP INCOME
+    navigate("/stepincome", {
       state: {
         ...data,
         maeSelecionada: selected,
