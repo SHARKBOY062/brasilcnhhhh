@@ -1,0 +1,141 @@
+.gov-page{
+  background:#f5f6f7;
+  min-height:100vh;
+  font-family: Arial, sans-serif;
+  color:#111;
+}
+
+.gov-header{
+  background:#fff;
+  border-bottom:1px solid #ddd;
+}
+
+.gov-header-inner{
+  height:56px;
+  display:flex;
+  align-items:center;
+  padding:0 24px;
+}
+
+.gov-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.gov-logo{
+  height:28px;
+  width:auto;
+  display:block;
+}
+
+.gov-brand-title{
+  font-size:14px;
+  font-weight:600;
+  color:#1f2937;
+}
+
+.gov-main{
+  padding:24px 0 48px;
+}
+
+.gov-card{
+  width:min(1180px, calc(100% - 40px));
+  margin:0 auto;
+  background:#fff;
+  border-radius:18px;
+  padding:22px 0 16px;
+  box-shadow:0 10px 26px rgba(0,0,0,.08);
+}
+
+.gov-card-title{
+  text-align:center;
+  font-size:16px;
+  font-weight:600;
+  margin:8px 20px 18px;
+  color:#111827;
+}
+
+.gov-step{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin:0 20px 12px;
+}
+
+.step-circle{
+  width:28px;
+  height:28px;
+  border-radius:999px;
+  background:#1d4ed8;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:13px;
+  flex:0 0 auto;
+  margin-top:2px;
+}
+
+.step-title{
+  font-size:14px;
+  font-weight:600;
+  color:#111827;
+  padding-top:5px;
+}
+
+.option-list{
+  margin:0 20px;
+  border-top:1px solid #d9d9d9;
+}
+
+.option-item{
+  width:100%;
+  text-align:left;
+  padding:18px 12px;
+  background:transparent;
+  border:0;
+  border-bottom:1px solid #d9d9d9;
+  cursor:pointer;
+  font-size:14px;
+  color:#111827;
+  transition:background .15s ease;
+}
+
+.option-item:hover{
+  background:#edf3ff;
+}
+
+.option-item.active{
+  background:#e2ecff;
+  font-weight:700;
+}
+
+.confirm-btn{
+  margin:18px 20px 10px;
+  width:calc(100% - 40px);
+  height:52px;
+  border:0;
+  border-radius:999px;
+  background:#6f8fc9;
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  transition:opacity .15s ease, transform .05s ease;
+}
+
+.confirm-btn:active{
+  transform:translateY(1px);
+}
+
+.confirm-btn:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+
+.step-loading{
+  padding:60px 20px;
+  text-align:center;
+}
