@@ -1,0 +1,89 @@
+.carousel-section{
+  background:#fff;
+  padding: 18px 0 18px;
+}
+
+.carousel{
+  width: 100%;
+}
+
+.carousel-viewport{
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+/* imagem grande igual print */
+.carousel-img{
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  user-select: none;
+}
+
+/* setas laterais */
+.carousel-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 0;
+  background: rgba(17, 24, 39, 0.72); /* azul/escuro igual do print */
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.carousel-arrow:hover{
+  background: rgba(17, 24, 39, 0.84);
+}
+
+.carousel-arrow.left{
+  left: 10px;
+}
+
+.carousel-arrow.right{
+  right: 10px;
+}
+
+/* bolinhas embaixo */
+.carousel-dots{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot{
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255,255,255,0.55);
+  cursor: pointer;
+}
+
+.dot.active{
+  background: rgba(255,255,255,0.92);
+}
+
+/* responsivo */
+@media (max-width: 480px){
+  .carousel-arrow{
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+  }
+  .carousel-arrow.left{ left: 8px; }
+  .carousel-arrow.right{ right: 8px; }
+  .carousel-dots{ bottom: 8px; }
+}

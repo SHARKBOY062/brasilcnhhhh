@@ -1,0 +1,115 @@
+.news-video{
+  background:#fff;
+}
+
+.video-frame{
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  background: #f3f4f6;
+}
+
+/* textura leve (visual do print) */
+.video-frame::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(rgba(0,0,0,.04) 1px, transparent 1px);
+  background-size: 14px 14px;
+  opacity: .35;
+  pointer-events:none;
+}
+
+.nav-left{
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 88px;
+  height: 88px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #1f4db7;
+  display: grid;
+  place-items: center;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.nav-left:hover{
+  opacity: .9;
+}
+
+.video-viewport{
+  position: relative;
+  margin-left: 110px; /* espaço branco da esquerda igual ao print */
+  background: transparent;
+  z-index: 2;
+}
+
+/* área do vídeo central */
+.video{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* barra inferior */
+.overlay{
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(0,0,0,.08);
+  backdrop-filter: blur(6px);
+  display: grid;
+  grid-template-columns: 34px 1fr 34px;
+  align-items: center;
+  padding: 0 6px;
+  gap: 8px;
+}
+
+.overlay-btn{
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 0;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: #111827;
+}
+
+.overlay-btn:hover{
+  background: rgba(0,0,0,.06);
+}
+
+.overlay-text{
+  font-size: 12px;
+  color: #6b7280;
+  text-align: center;
+  user-select: none;
+}
+
+/* responsivo */
+@media (max-width: 768px){
+  .video-viewport{ margin-left: 84px; }
+  .nav-left{ left: 10px; width: 70px; height: 70px; }
+  .nav-left svg{ width: 44px; height: 44px; }
+}
+
+@media (max-width: 480px){
+  .video-viewport{ margin-left: 0; }
+  .nav-left{ display: none; }
+  .overlay{ left: 8px; right: 8px; bottom: 8px; }
+}

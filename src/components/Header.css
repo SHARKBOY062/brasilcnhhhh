@@ -1,0 +1,148 @@
+.gov-header {
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================= TOP ================= */
+
+.gov-top {
+  background: #ffffff;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 8px 0;
+}
+
+.gov-top-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gov-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.gov-logo {
+  height: 34px;
+  object-fit: contain;
+}
+
+.gov-icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #1f3c88;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gov-icon-btn:hover {
+  opacity: 0.7;
+}
+
+/* LOGIN */
+
+.gov-login {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1f4db7;
+  color: #ffffff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.gov-login:hover {
+  background: #183b8c;
+}
+
+/* ================= BOTTOM ================= */
+
+.gov-bottom {
+  background: #ededed;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 10px 0;
+}
+
+.gov-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gov-ministry {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.gov-search-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #333333;
+  display: flex;
+  align-items: center;
+}
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 768px) {
+  .gov-left {
+    gap: 10px;
+  }
+
+  .gov-ministry {
+    font-size: 14px;
+  }
+
+  .gov-login span {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .gov-top-inner,
+  .gov-bottom-inner {
+    flex-wrap: wrap;
+  }
+
+  .gov-ministry {
+    width: 100%;
+    margin-top: 8px;
+  }
+}/* ===== BOTTOM ================= */
+
+.gov-bottom {
+  background: #ededed;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 10px 0;
+}
+
+.gov-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gov-ministry-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gov-menu-icon {
+  color: #333333;
+}
+
+.gov-ministry {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333333;
+}
