@@ -47,7 +47,7 @@ export default function StepName() {
 
     const fakePool = [
       "MARIA PEREIRA COSTA",
-      "CIRO JOSE DE OLIVEIRA NETO",
+      "JUNIOR OLIVEIRA",
       "ALICE SANTOS RIBEIRO",
       "JOÃO ANDRADE DA SILVA",
       "ANA CAROLINA SOUZA",
